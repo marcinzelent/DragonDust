@@ -29,6 +29,7 @@ ExportedObj/
 *.pidb.meta
 *.pdb.meta
 *.cs.meta
+nGJ2019/Assets/*.meta
 
 # Unity3D Generated File On Crash Reports
 sysinfo.txt
