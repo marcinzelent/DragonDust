@@ -4,11 +4,15 @@ using System.Collections.Generic;
 public class SwarmSystem : MonoBehaviour
 {
 	public GameObject swarmPrefab;
+	public GameObject anchorPrefab;
 	public int size = 1;
 	
 	public bool showGuides = false;
 	
 	private List<Transform> units = new List<Transform>();
+	private List<Transform> anchors = new List<Transform>();
+	private List<Vector3> noiseDirecs = new List<Vector3>();
+	
 	private List<Vector3> boneStarts = new List<Vector3>();
 	private List<Vector3> boneEnds = new List<Vector3>();
 	private List<Transform> boneTransforms = new List<Transform>();
@@ -20,6 +24,8 @@ public class SwarmSystem : MonoBehaviour
 	
 	private List<int> unitTris = new List<int>();
 	private List<List<int>> triGraph;
+	
+	public float Noise {get; set;}
 	
 	private Mesh getCurrentMesh()
 	{
@@ -82,19 +88,17 @@ public class SwarmSystem : MonoBehaviour
 	
 	private bool triangleIndexIntersection(int idx, Vector3[] vertices, int[] triangles, Ray ray, out Vector3 intersect)
 	{
-		return triangleIntersection(meshRender.transform.TransformPoint(vertices[triangles[idx*3]]), 
-							 meshRender.transform.TransformPoint(vertices[triangles[idx*3+1]]), 
-							 meshRender.transform.TransformPoint(vertices[triangles[idx*3+2]]), 
-							 ray, out intersect);
+		return triangleIntersection( meshRender.transform.TransformPoint(vertices[triangles[idx*3]]), 
+									 meshRender.transform.TransformPoint(vertices[triangles[idx*3+1]]), 
+									 meshRender.transform.TransformPoint(vertices[triangles[idx*3+2]]), 
+									 ray, out intersect);
 	}
 	
 	private Vector3 meshIntersection(int unitIdx, Vector3[] vertices, int[] triangles, Vector3 boneCenter)
 	{
-		Transform unit = units[unitIdx];
-		
 		Vector3 intersect;
 		
-		Ray ray = new Ray(boneCenter, unit.position-boneCenter);
+		Ray ray = new Ray(boneCenter, anchors[unitIdx].position-boneCenter);
 		
 		if(unitTris[unitIdx] != -1)
 		{
@@ -122,7 +126,7 @@ public class SwarmSystem : MonoBehaviour
 			}
 		}
 		
-		return unit.position;
+		return anchors[unitIdx].position;
 	}
 	
 	private void calculateTriGraph()
@@ -203,8 +207,6 @@ public class SwarmSystem : MonoBehaviour
 				boneTips.Add(b);
 			}
 		}
-		
-		Debug.Log(boneTips.Count);
 	}
 	
 	private void refreshMesh()
@@ -298,14 +300,35 @@ public class SwarmSystem : MonoBehaviour
 			
 			Vector3 p = (1-r1)*mesh.vertices[mesh.triangles[k*3]] + (r1*(1-r2))*mesh.vertices[mesh.triangles[k*3+1]] + (r1*r2)*mesh.vertices[mesh.triangles[k*3+2]];
 			
+			GameObject anchor = (GameObject)Instantiate(anchorPrefab, meshRender.transform.TransformPoint(p), Quaternion.identity);
+			
 			GameObject spawn = (GameObject)Instantiate(swarmPrefab, meshRender.transform.TransformPoint(p), Quaternion.identity);
 			
 			spawn.transform.parent = transform;
+			anchor.transform.parent = transform;
 			
 			units.Add(spawn.transform);
+			anchors.Add(anchor.transform);
+			noiseDirecs.Add(Random.onUnitSphere);
 			
 			unitTris.Add(k);
 		}
+	}
+	
+	public void activate(bool turnOn)
+	{
+		foreach(Transform u in units)
+			u.gameObject.SetActive(turnOn);
+	}
+	
+	public Transform rootBone()
+	{
+		return meshRender.bones[0];
+	}
+	
+	public void setNoise(float noise)
+	{
+		
 	}
 	
 	void Start()
@@ -329,6 +352,8 @@ public class SwarmSystem : MonoBehaviour
 		
 		Mesh mesh = getCurrentMesh();
 		
+		Transform root = meshRender.bones[0].parent;
+		
 		Vector3[] vertices = mesh.vertices;
 		int[] triangles = mesh.triangles;
 		
@@ -340,11 +365,11 @@ public class SwarmSystem : MonoBehaviour
 			
 			Vector3 boneCenter = findBoneCenter(u, out boneDirec);
 			
-			unit.RotateAround(boneCenter, boneDirec, 1f);
+			anchors[u].position = boneCenter + (Quaternion.AngleAxis(1f, boneDirec) * (anchors[u].position - boneCenter));
 			
-			//unit.position = 0.5f*(unit.position + boneCenter);
+			anchors[u].position = meshIntersection(u, vertices, triangles, boneCenter);
 			
-			unit.position = meshIntersection(u, vertices, triangles, boneCenter);
+			unit.position = anchors[u].position + Noise*noiseDirecs[u];
 		}
 	}
 	
