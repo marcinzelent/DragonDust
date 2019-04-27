@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class EventTimeline
 {
-	public enum SpawnEventType {wall, enemy};
+	public enum SpawnEventType {alfa, beta};
 	
     public class SpawnEvent
 	{
