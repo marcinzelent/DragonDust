@@ -49,7 +49,7 @@ public class LevelScrolling : MonoBehaviour
         Background.localScale = new Vector3(finalHeight, finalHeight, 1);
 
         var viewportX = Camera.main.ViewportToWorldPoint(new Vector3(0, 1, 0)).x;
-        Background.position = new Vector3(viewportX * -1, 0, 0);
+        Background.position = new Vector3(viewportX * -1, 0, 10);
         initialBgPos = Background.position;
     }
 
