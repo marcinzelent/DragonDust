@@ -14,6 +14,8 @@ public class DragonMovement : MonoBehaviour
 	
 	public HealthBar healthBar;
 	
+	private float hurtCooldown = 0;
+	
 	private SwarmSystem swarm;
 	
 	private enum State {normal, swirl, slim, spread};
@@ -169,6 +171,9 @@ public class DragonMovement : MonoBehaviour
 	
 	void Update()
 	{
+		if(hurtCooldown < 0)
+			hurtCooldown -= Time.deltaTime;
+		
 		// keyboard scheme
 		if(Input.GetKey("w"))
 			moveUp();
@@ -196,11 +201,11 @@ public class DragonMovement : MonoBehaviour
 		
 		
 		// xbox scheme
-		if(Input.GetAxis("JoystickY") > 0.5f)
+		if(Input.GetAxis("JoystickY") < -0.5f)
 			moveUp();
 		if(Input.GetAxis("JoystickX") < -0.5f)
 			moveLeft();
-		if(Input.GetAxis("JoystickY") < -0.5f)
+		if(Input.GetAxis("JoystickY") > 0.5f)
 			moveDown();
 		if(Input.GetAxis("JoystickX") > 0.5f)
 			moveRight();
@@ -227,12 +232,21 @@ public class DragonMovement : MonoBehaviour
 		Gizmos.DrawWireCube(Vector3.zero, new Vector3(2*horizontalBound, 2*verticalBound, 0));
 	}
 	
+	private void getHurt()
+	{
+		if(hurtCooldown <= 0)
+		{
+			healthBar.health--;
+			hurtCooldown = 3;
+		}
+	}
+	
 	void OnTriggerEnter(Collider other)
 	{
 		EnemyCollider enemy = other.gameObject.GetComponent<EnemyCollider>();
 		if(enemy != null)
 		{
-			healthBar.health--;
+			getHurt();
 		}
 	}
 	
