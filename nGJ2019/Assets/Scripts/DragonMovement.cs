@@ -169,6 +169,7 @@ public class DragonMovement : MonoBehaviour
 	
 	void Update()
 	{
+		// keyboard scheme
 		if(Input.GetKey("w"))
 			moveUp();
 		if(Input.GetKey("a"))
@@ -192,6 +193,32 @@ public class DragonMovement : MonoBehaviour
 			turnSpread();
 		if(Input.GetKeyUp("k"))
 			turnAntiSpread();
+		
+		
+		// xbox scheme
+		if(Input.GetAxis("JoystickY") > 0.5f)
+			moveUp();
+		if(Input.GetAxis("JoystickX") < -0.5f)
+			moveLeft();
+		if(Input.GetAxis("JoystickY") < -0.5f)
+			moveDown();
+		if(Input.GetAxis("JoystickX") > 0.5f)
+			moveRight();
+		
+		if(Input.GetButtonDown("X"))
+			turnSwirl();
+		if(Input.GetButtonUp("X"))
+			turnAntiSwirl();
+		
+		if(Input.GetButtonDown("A"))
+			turnSlim();
+		if(Input.GetButtonUp("A"))
+			turnAntiSlim();
+		
+		if(Input.GetButtonDown("Y"))
+			turnSpread();
+		if(Input.GetButtonUp("Y"))
+			turnAntiSpread();
 	}
 	
 	void OnDrawGizmosSelected()
@@ -205,7 +232,7 @@ public class DragonMovement : MonoBehaviour
 		EnemyCollider enemy = other.gameObject.GetComponent<EnemyCollider>();
 		if(enemy != null)
 		{
-			Debug.Log(enemy.type == ObstacleType.alfa ? "alfa hit" : "beta hit");
+			//Debug.Log(enemy.type == ObstacleType.alfa ? "alfa hit" : "beta hit");
 			healthBar.health--;
 		}
 	}
