@@ -47,6 +47,7 @@ public class ObstacleSpawner : MonoBehaviour
     timeline.Add(2, 2.75f, ObstacleType.rockTop);
     timeline.Add(8, -2, ObstacleType.rockBottom);
     timeline.Add(20, 0, ObstacleType.narrowPassage);
+    timeline.Add(30, 0, ObstacleType.rockJaws);
 
     timeline.OnSpawnEvent += spawnOnEvent;
   }

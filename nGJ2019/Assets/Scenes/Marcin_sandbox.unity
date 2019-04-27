@@ -466,7 +466,8 @@ MonoBehaviour:
     type: 3}
   narrowPassagePrefab: {fileID: 1998900778231223134, guid: ce339cccf24f74448af698eb997a3d95,
     type: 3}
-  rockJawsPrefab: {fileID: 0}
+  rockJawsPrefab: {fileID: 1998900778231223134, guid: a2b1bab6b90944171a71ff986bce4ebf,
+    type: 3}
   scrolling: {fileID: 202725831}
   spawnLine: 13.5
 --- !u!1001 &1920748800
