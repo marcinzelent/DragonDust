@@ -34,7 +34,7 @@ public class ObstacleSpawner : MonoBehaviour
         break;
     }
 
-    var o = Instantiate(prefab, new Vector3(spawnLine, e.height, 0), Quaternion.identity);
+    var o = Instantiate(prefab, new Vector3(spawnLine, e.position.y, e.position.z), Quaternion.identity);
     scrolling.Obstacles.Add(o);
   }
 
@@ -42,12 +42,12 @@ public class ObstacleSpawner : MonoBehaviour
   {
     for (int i = 0; i < 120; i += 5)
     {
-      timeline.Add(i, 0, ObstacleType.caveWalls);
+      timeline.Add(i, new Vector3(0, 0, 0), ObstacleType.caveWalls);
     }
-    timeline.Add(2, 2.75f, ObstacleType.rockTop);
-    timeline.Add(8, -2, ObstacleType.rockBottom);
-    timeline.Add(20, 0, ObstacleType.narrowPassage);
-    timeline.Add(30, 0, ObstacleType.rockJaws);
+    timeline.Add(2, new Vector3(0, 2.75f, 0), ObstacleType.rockTop);
+    timeline.Add(8, new Vector3(0, -2, 0), ObstacleType.rockBottom);
+    timeline.Add(20, new Vector3(0, 0, 0), ObstacleType.narrowPassage);
+    timeline.Add(30, new Vector3(0, 0, 1), ObstacleType.rockJaws);
 
     timeline.OnSpawnEvent += spawnOnEvent;
   }

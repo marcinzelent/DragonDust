@@ -1,19 +1,20 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 
 public class EventTimeline
 {
 	public class SpawnEvent
 	{
 		public float time;
-		public float height;
+		public Vector3 position;
 		public ObstacleType type;
 		
-		public SpawnEvent(float time, float height, ObstacleType type)
+		public SpawnEvent(float time, Vector3 position, ObstacleType type)
 		{
 			this.time = time;
-			this.height = height;
+			this.position = position;
 			this.type = type;
 		}
 	}
@@ -44,9 +45,9 @@ public class EventTimeline
 		currentTime = 0;
 	}
 	
-	public void Add(float time, float height, ObstacleType type)
+	public void Add(float time, Vector3 position, ObstacleType type)
 	{
-		futureEvents.Add(new SpawnEvent(time, height, type));
+		futureEvents.Add(new SpawnEvent(time, position, type));
 		futureEvents.Sort((x,y) => x.time.CompareTo(y.time));
 	}
 
