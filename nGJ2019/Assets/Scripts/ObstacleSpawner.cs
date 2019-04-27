@@ -15,10 +15,10 @@ public class ObstacleSpawner : MonoBehaviour
 	{
 		GameObject prefab = null;
 		
-		if(e.type == EventTimeline.SpawnEventType.alfa)
+		if(e.type == ObstacleType.alfa)
 			prefab = alfaPrefab;
 		
-		if(e.type == EventTimeline.SpawnEventType.beta)
+		if(e.type == ObstacleType.beta)
 			prefab = betaPrefab;
 		
 		Instantiate(prefab, new Vector3(spawnLine, e.height, 0), Quaternion.identity);
@@ -26,10 +26,10 @@ public class ObstacleSpawner : MonoBehaviour
 	
     void Start()
     {
-        timeline.Add(2, 2, EventTimeline.SpawnEventType.alfa);
-		timeline.Add(4, 2, EventTimeline.SpawnEventType.beta);
-		timeline.Add(5, -2, EventTimeline.SpawnEventType.beta);
-		timeline.Add(7, -3, EventTimeline.SpawnEventType.alfa);
+        timeline.Add(2, 4, ObstacleType.alfa);
+		timeline.Add(4, 2, ObstacleType.beta);
+		timeline.Add(5, -2, ObstacleType.beta);
+		timeline.Add(7, -3, ObstacleType.alfa);
 		
 		timeline.OnSpawnEvent += spawnOnEvent;
     }
