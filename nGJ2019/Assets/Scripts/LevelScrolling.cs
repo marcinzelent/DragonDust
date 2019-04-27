@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LevelScrolling : MonoBehaviour
 {
-  public int UpdateRate = 1;
+  public int UpdateRate = -5;
   public List<Transform> Obstacles;
   public Transform Background;
 
@@ -56,14 +56,14 @@ public class LevelScrolling : MonoBehaviour
   {
     foreach (var o in Obstacles)
     {
-        o.Translate(new Vector2(0.01f * UpdateRate, 0));
+        o.Translate(0.01f * UpdateRate, 0, 0);
     }
   }
 
   private void MoveBackground()
   {
     if (Background.position.x > -initialBgPos.x)
-      Background.Translate(new Vector2(0.01f * UpdateRate, 0));
+      Background.Translate(0.01f * UpdateRate, 0, 0);
     else Background.position = initialBgPos;
   }
 }
