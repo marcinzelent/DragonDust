@@ -49,7 +49,7 @@ public class LevelScrolling : MonoBehaviour
         Background.localScale = new Vector3(finalHeight, finalHeight, 1);
 
         var viewportX = Camera.main.ViewportToWorldPoint(new Vector3(0, 1, 0)).x;
-        Background.position = new Vector3(viewportX * -1, 0, 0);
+        Background.position = new Vector3(viewportX * -1, 0, 10);
         initialBgPos = Background.position;
     }
 
@@ -63,7 +63,7 @@ public class LevelScrolling : MonoBehaviour
 
     void DestroyObstacles()
     {
-        if (Obstacles[0].transform.position.x < -30)
+        if (Obstacles.Count > 0 && Obstacles[0].transform.position.x < -30)
         {
             Destroy(Obstacles[0]);
             Obstacles.RemoveAt(0);

@@ -381,7 +381,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1342555976}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.886415, y: 0, z: 0}
+  m_LocalPosition: {x: 8.886415, y: 0, z: 10}
   m_LocalScale: {x: 1.736111, y: 1.736111, z: 1}
   m_Children: []
   m_Father: {fileID: 202725832}
@@ -404,7 +404,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 5d5aaa9c2f47c436b922e7b7869e8557, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -423,7 +423,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 420921107e115344ea4e97eeb2bca416, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -663,6 +663,8 @@ MonoBehaviour:
   narrowPassagePrefab: {fileID: 1998900778231223134, guid: ce339cccf24f74448af698eb997a3d95,
     type: 3}
   rockJawsPrefab: {fileID: 1998900778231223134, guid: a2b1bab6b90944171a71ff986bce4ebf,
+    type: 3}
+  netPrefab: {fileID: 5435085934957895830, guid: 459b4334249a5491ca7e8e02a92f8141,
     type: 3}
   scrolling: {fileID: 202725831}
   spawnLine: 13.5
