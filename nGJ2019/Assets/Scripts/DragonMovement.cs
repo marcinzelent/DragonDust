@@ -12,6 +12,8 @@ public class DragonMovement : MonoBehaviour
 	public float horizontalBound = 6f;	
 	public float verticalBound = 4f;
 	
+	public HealthBar healthBar;
+	
 	private SwarmSystem swarm;
 	
 	private enum State {normal, swirl, slim, spread};
@@ -196,6 +198,16 @@ public class DragonMovement : MonoBehaviour
 	{
 		Gizmos.color = Color.cyan;
 		Gizmos.DrawWireCube(Vector3.zero, new Vector3(2*horizontalBound, 2*verticalBound, 0));
+	}
+	
+	void OnTriggerEnter(Collider other)
+	{
+		EnemyCollider enemy = other.gameObject.GetComponent<EnemyCollider>();
+		if(enemy != null)
+		{
+			Debug.Log(enemy.type == ObstacleType.alfa ? "alfa hit" : "beta hit");
+			healthBar.health--;
+		}
 	}
 	
 }

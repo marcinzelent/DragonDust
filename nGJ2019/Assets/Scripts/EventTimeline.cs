@@ -4,15 +4,13 @@ using System.Collections.Generic;
 
 public class EventTimeline
 {
-	public enum SpawnEventType {alfa, beta};
-	
-    public class SpawnEvent
+	public class SpawnEvent
 	{
 		public float time;
 		public float height;
-		public SpawnEventType type;
+		public ObstacleType type;
 		
-		public SpawnEvent(float time, float height, SpawnEventType type)
+		public SpawnEvent(float time, float height, ObstacleType type)
 		{
 			this.time = time;
 			this.height = height;
@@ -31,7 +29,7 @@ public class EventTimeline
 		currentTime = 0;
 	}
 	
-	public void Add(float time, float height, SpawnEventType type)
+	public void Add(float time, float height, ObstacleType type)
 	{
 		futureEvents.Add(new SpawnEvent(time, height, type));
 		futureEvents.Sort((x,y) => x.time.CompareTo(y.time));

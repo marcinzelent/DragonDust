@@ -16,10 +16,10 @@ public class ObstacleSpawner : MonoBehaviour
 	{
 		GameObject prefab = null;
 		
-		if(e.type == EventTimeline.SpawnEventType.alfa)
+		if(e.type == ObstacleType.alfa)
 			prefab = alfaPrefab;
 		
-		if(e.type == EventTimeline.SpawnEventType.beta)
+		if(e.type == ObstacleType.beta)
 			prefab = betaPrefab;
 		
 		var transformT = ((GameObject) Instantiate(prefab, new Vector3(spawnLine, e.height, 0), Quaternion.identity)).transform;
