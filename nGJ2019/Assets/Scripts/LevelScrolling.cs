@@ -5,7 +5,7 @@ using UnityEngine;
 public class LevelScrolling : MonoBehaviour
 {
   public int updateRate = 1;
-  public Transform longcat;
+  public Transform obstacles;
   public Transform background;
 
   private Vector3 initialBgPos;
@@ -26,7 +26,7 @@ public class LevelScrolling : MonoBehaviour
   void FixedUpdate()
   {
     MoveBackground();
-    MoveLongcat();
+    MoveObstacles();
   }
 
   private void ResizeBackground()
@@ -52,9 +52,9 @@ public class LevelScrolling : MonoBehaviour
     initialBgPos = background.position;
   }
 
-  private void MoveLongcat()
+  private void MoveObstacles()
   {
-    longcat.Translate(new Vector2(0.1f * updateRate, 0));
+    obstacles.Translate(new Vector2(0.1f * updateRate, 0));
   }
 
   private void MoveBackground()
