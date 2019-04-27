@@ -89,7 +89,7 @@ public class DragonMovement : MonoBehaviour
 	{
 		while(state == State.normal && swarm.Noise > 0)
 		{
-			swarm.Noise -= 0.08f;
+			swarm.Noise -= 0.12f;
 			yield return new WaitForSeconds(0.01f);
 		}
 		if(state == State.normal)
@@ -125,21 +125,32 @@ public class DragonMovement : MonoBehaviour
 		StartCoroutine("transformSpread");
 	}
 	
-	private void turnNormal()
+	private void turnAntiSwirl()
 	{
-		State prev = state;
-		state = State.normal;
-		if(prev == State.swirl)
+		if(state == State.swirl)
 		{
+			state = State.normal;
 			turnVisible(true);
 			swarm.activate(false);
 		}
-		
-		if(prev == State.slim)
+	}
+	
+	private void turnAntiSlim()
+	{
+		if(state == State.slim)
+		{
+			state = State.normal;
 			StartCoroutine("transformAntiSlim");
-		
-		if(prev == State.spread)
+		}
+	}
+	
+	private void turnAntiSpread()
+	{
+		if(state == State.spread)
+		{
+			state = State.normal;
 			StartCoroutine("transformAntiSpread");
+		}
 	}
 	
 	private void resetTurn()
@@ -151,7 +162,7 @@ public class DragonMovement : MonoBehaviour
 	void Start()
 	{
 		swarm = GetComponent<SwarmSystem>();
-		swarm.activate(true);
+		swarm.activate(false);
 	}
 	
 	void Update()
@@ -165,20 +176,20 @@ public class DragonMovement : MonoBehaviour
 		if(Input.GetKey("d"))
 			moveRight();
 		
-		if(Input.GetKeyDown("r"))
+		if(Input.GetKeyDown("i"))
 			turnSwirl();
-		if(Input.GetKeyUp("r"))
-			turnNormal();
+		if(Input.GetKeyUp("i"))
+			turnAntiSwirl();
 		
-		if(Input.GetKeyDown("f"))
+		if(Input.GetKeyDown("j"))
 			turnSlim();
-		if(Input.GetKeyUp("f"))
-			turnNormal();
+		if(Input.GetKeyUp("j"))
+			turnAntiSlim();
 		
-		if(Input.GetKeyDown("e"))
+		if(Input.GetKeyDown("k"))
 			turnSpread();
-		if(Input.GetKeyUp("e"))
-			turnNormal();
+		if(Input.GetKeyUp("k"))
+			turnAntiSpread();
 	}
 	
 	void OnDrawGizmosSelected()
