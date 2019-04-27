@@ -8,7 +8,6 @@ public class ObstacleSpawner : MonoBehaviour
 
   public GameObject caveWallsPrefab, rockTopPrefab, rockBottomPrefab, narrowPassagePrefab, rockJawsPrefab;
   public LevelScrolling scrolling;
-  public Messenger messenger;
 
   public float spawnLine;
 
@@ -35,8 +34,8 @@ public class ObstacleSpawner : MonoBehaviour
         break;
     }
 
-    var transformT = ((GameObject)Instantiate(prefab, new Vector3(spawnLine, e.height, 0), Quaternion.identity)).transform;
-    scrolling.Obstacles.Add(transformT);
+    var o = Instantiate(prefab, new Vector3(spawnLine, e.height, 0), Quaternion.identity);
+    scrolling.Obstacles.Add(o);
   }
 
   void Start()

@@ -60,17 +60,20 @@ public class EventTimeline
 	{
 		currentTime += deltaTime;
 		
-		while(futureEvents.Count > 0 && currentTime > futureEvents[0].time && futureMessages.Count > 0 && currentTime > futureMessages[0].time)
+		while(futureEvents.Count > 0 && currentTime > futureEvents[0].time)
 		{
 			SpawnEvent e = futureEvents[0];
 			futureEvents.RemoveAt(0);
 			if(OnSpawnEvent != null)
 				OnSpawnEvent(e);
+		}
 
+        while(futureMessages.Count > 0 && currentTime > futureMessages[0].time)
+        {
             MessageEvent m = futureMessages[0];
             futureMessages.RemoveAt(0);
             if(OnMessageEvent != null)
                 OnMessageEvent(m);
-		}
+        }
 	}
 }
