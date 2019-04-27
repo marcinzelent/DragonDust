@@ -26,6 +26,7 @@ public class SwarmSystem : MonoBehaviour
 	private List<List<int>> triGraph;
 	
 	public float Noise {get; set;}
+	public float Collapse {get; set;}
 	
 	private Mesh getCurrentMesh()
 	{
@@ -365,11 +366,15 @@ public class SwarmSystem : MonoBehaviour
 			
 			Vector3 boneCenter = findBoneCenter(u, out boneDirec);
 			
-			anchors[u].position = boneCenter + (Quaternion.AngleAxis(1f, boneDirec) * (anchors[u].position - boneCenter));
+			anchors[u].position = boneCenter + (Quaternion.AngleAxis(3f, boneDirec) * (anchors[u].position - boneCenter));
 			
 			anchors[u].position = meshIntersection(u, vertices, triangles, boneCenter);
 			
 			unit.position = anchors[u].position + Noise*noiseDirecs[u];
+			
+			Vector3 collapsedPos = Vector3.Project(unit.position - transform.position, Vector3.right) + transform.position;
+			
+			unit.position = (1-Collapse)*unit.position + Collapse*collapsedPos;
 		}
 	}
 	

@@ -55,9 +55,9 @@ public class DragonMovement : MonoBehaviour
 	
 	private IEnumerator transformSlim()
 	{
-		while(state == State.slim && transform.localScale.y > 0.2f)
+		while(state == State.slim && swarm.Collapse < 0.8f)
 		{
-			transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y-0.03f, transform.localScale.z-0.03f);
+			swarm.Collapse += 0.05f;
 			yield return new WaitForSeconds(0.01f);
 		}
 	}
@@ -73,9 +73,9 @@ public class DragonMovement : MonoBehaviour
 	
 	private IEnumerator transformAntiSlim()
 	{
-		while(state == State.normal && transform.localScale.y < 1)
+		while(state == State.normal && swarm.Collapse > 0)
 		{
-			transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y+0.05f, transform.localScale.z+0.05f);
+			swarm.Collapse -= 0.07f;
 			yield return new WaitForSeconds(0.01f);
 		}
 		if(state == State.normal)
@@ -155,7 +155,7 @@ public class DragonMovement : MonoBehaviour
 	
 	private void resetTurn()
 	{
-		transform.localScale = Vector3.one;
+		swarm.Collapse = 0;
 		swarm.Noise = 0;
 	}
 	
