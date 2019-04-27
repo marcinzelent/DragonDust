@@ -30,7 +30,7 @@ public class ObstacleSpawner : MonoBehaviour
     {
         for(int i = 0; i < 120; i += 5)
         {
-            timeline.Add(i, 0, EventTimeline.SpawnEventType.alfa);
+            timeline.Add(i, 0, ObstacleType.alfa);
         }
 		
 		timeline.OnSpawnEvent += spawnOnEvent;
