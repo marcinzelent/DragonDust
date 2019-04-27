@@ -127,6 +127,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -927199367670048503, guid: fbb1d264bae087340a30a49b9b9e0148,
+        type: 3}
+      propertyPath: m_Name
+      value: obstacle_rock_bottom_1
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: fbb1d264bae087340a30a49b9b9e0148,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -165,7 +170,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: fbb1d264bae087340a30a49b9b9e0148,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: fbb1d264bae087340a30a49b9b9e0148,
         type: 3}
@@ -182,11 +187,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: fbb1d264bae087340a30a49b9b9e0148,
-        type: 3}
-      propertyPath: m_Name
-      value: obstacle_rock_bottom_1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fbb1d264bae087340a30a49b9b9e0148, type: 3}
 --- !u!1001 &248066052
@@ -196,6 +196,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -927199367670048503, guid: 416fae093739c55499f7dcb7d4f7f2c9,
+        type: 3}
+      propertyPath: m_Name
+      value: obstacle_rock_top (1)
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 416fae093739c55499f7dcb7d4f7f2c9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -234,7 +239,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 416fae093739c55499f7dcb7d4f7f2c9,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 416fae093739c55499f7dcb7d4f7f2c9,
         type: 3}
@@ -251,11 +256,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 416fae093739c55499f7dcb7d4f7f2c9,
-        type: 3}
-      propertyPath: m_Name
-      value: obstacle_rock_top (1)
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 416fae093739c55499f7dcb7d4f7f2c9, type: 3}
 --- !u!1001 &694316132
@@ -265,6 +265,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -927199367670048503, guid: fbb1d264bae087340a30a49b9b9e0148,
+        type: 3}
+      propertyPath: m_Name
+      value: obstacle_rock_bottom_1 (1)
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: fbb1d264bae087340a30a49b9b9e0148,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -303,7 +308,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: fbb1d264bae087340a30a49b9b9e0148,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: fbb1d264bae087340a30a49b9b9e0148,
         type: 3}
@@ -319,11 +324,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: fbb1d264bae087340a30a49b9b9e0148,
-        type: 3}
-      propertyPath: m_Name
-      value: obstacle_rock_bottom_1 (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fbb1d264bae087340a30a49b9b9e0148, type: 3}
@@ -425,7 +425,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: e1be0eb310d9e9f4f831374a5baf7718,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -15.48061
+      value: -0.55
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: e1be0eb310d9e9f4f831374a5baf7718,
         type: 3}
@@ -435,27 +435,27 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: e1be0eb310d9e9f4f831374a5baf7718,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -2.16
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: e1be0eb310d9e9f4f831374a5baf7718,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: e1be0eb310d9e9f4f831374a5baf7718,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 0.7559996
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: e1be0eb310d9e9f4f831374a5baf7718,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: e1be0eb310d9e9f4f831374a5baf7718,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.6545721
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: e1be0eb310d9e9f4f831374a5baf7718,
         type: 3}
@@ -470,7 +470,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: e1be0eb310d9e9f4f831374a5baf7718,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 98.226006
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: e1be0eb310d9e9f4f831374a5baf7718,
         type: 3}
@@ -565,6 +565,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -927199367670048503, guid: 416fae093739c55499f7dcb7d4f7f2c9,
+        type: 3}
+      propertyPath: m_Name
+      value: obstacle_rock_top
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 416fae093739c55499f7dcb7d4f7f2c9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -603,7 +608,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 416fae093739c55499f7dcb7d4f7f2c9,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 416fae093739c55499f7dcb7d4f7f2c9,
         type: 3}
@@ -619,11 +624,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 416fae093739c55499f7dcb7d4f7f2c9,
-        type: 3}
-      propertyPath: m_Name
-      value: obstacle_rock_top
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 416fae093739c55499f7dcb7d4f7f2c9, type: 3}
