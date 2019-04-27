@@ -8,6 +8,7 @@ public class ObstacleSpawner : MonoBehaviour
 
   public GameObject caveWallsPrefab, rockTopPrefab, rockBottomPrefab, narrowPassagePrefab, rockJawsPrefab;
   public LevelScrolling scrolling;
+  public Messenger messenger;
 
   public float spawnLine;
 
@@ -62,5 +63,10 @@ public class ObstacleSpawner : MonoBehaviour
   {
     Gizmos.color = Color.green;
     Gizmos.DrawLine(new Vector3(spawnLine, -10, 0), new Vector3(spawnLine, 10, 0));
+  }
+
+  public EventTimeline GetEventTimeline()
+  {
+      return timeline;
   }
 }
