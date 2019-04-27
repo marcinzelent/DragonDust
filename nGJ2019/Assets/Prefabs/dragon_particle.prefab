@@ -41,8 +41,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8077401375918419270}
-  - component: {fileID: 8630204386568766907}
   - component: {fileID: 657432053680591539}
+  - component: {fileID: 7401685731915447956}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -60,23 +60,11 @@ Transform:
   m_GameObject: {fileID: 3956812704593654807}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.29556, y: 0.29556, z: 0.29556}
+  m_LocalScale: {x: 0.17713054, y: 0.17713054, z: 0.17713054}
   m_Children: []
   m_Father: {fileID: 7771521336157481751}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!122 &8630204386568766907
-Halo:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3956812704593654807}
-  m_Enabled: 1
-  m_Color:
-    serializedVersion: 2
-    rgba: 4293915070
-  m_Size: 0.12
 --- !u!96 &657432053680591539
 TrailRenderer:
   serializedVersion: 2
@@ -190,6 +178,18 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
+--- !u!122 &7401685731915447956
+Halo:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3956812704593654807}
+  m_Enabled: 1
+  m_Color:
+    serializedVersion: 2
+    rgba: 4294963056
+  m_Size: 0.1
 --- !u!1001 &2920835375877647928
 PrefabInstance:
   m_ObjectHideFlags: 0
