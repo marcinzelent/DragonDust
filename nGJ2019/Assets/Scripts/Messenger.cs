@@ -16,6 +16,7 @@ public class Messenger : MonoBehaviour
         timeline = Spawner.GetEventTimeline();
 
         timeline.Add(1, "Test");
+        timeline.Add(3, "");
 
         timeline.OnMessageEvent += MessageOnEvent;
     }
