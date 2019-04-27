@@ -4,47 +4,62 @@ using UnityEngine;
 
 public class ObstacleSpawner : MonoBehaviour
 {
-	private EventTimeline timeline = new EventTimeline();
-	
-	public GameObject alfaPrefab;
-	public GameObject betaPrefab;
-    public LevelScrolling scrolling;
-	
-	public float spawnLine;
-	
-	private void spawnOnEvent(EventTimeline.SpawnEvent e)
-	{
-		GameObject prefab = null;
-		
-		if(e.type == ObstacleType.alfa)
-			prefab = alfaPrefab;
-		
-		if(e.type == ObstacleType.beta)
-			prefab = betaPrefab;
-		
-		var transformT = ((GameObject) Instantiate(prefab, new Vector3(spawnLine, e.height, 0), Quaternion.identity)).transform;
-        scrolling.Obstacles.Add(transformT);
-	}
-	
-    void Start()
+  private EventTimeline timeline = new EventTimeline();
+
+  public GameObject caveWallsPrefab, rockTopPrefab, rockBottomPrefab, narrowPassagePrefab, rockJawsPrefab;
+  public LevelScrolling scrolling;
+
+  public float spawnLine;
+
+  private void spawnOnEvent(EventTimeline.SpawnEvent e)
+  {
+    GameObject prefab = null;
+
+    switch (e.type)
     {
-        for(int i = 0; i < 120; i += 5)
-        {
-            timeline.Add(i, 0, ObstacleType.alfa);
-        }
-		
-		timeline.OnSpawnEvent += spawnOnEvent;
+      case ObstacleType.caveWalls:
+        prefab = caveWallsPrefab;
+        break;
+      case ObstacleType.rockTop:
+        prefab = rockTopPrefab;
+        break;
+      case ObstacleType.rockBottom:
+        prefab = rockBottomPrefab;
+        break;
+      case ObstacleType.narrowPassage:
+        prefab = narrowPassagePrefab;
+        break;
+      case ObstacleType.rockJaws:
+        prefab = rockJawsPrefab;
+        break;
     }
 
-    // Update is called once per frame
-    void Update()
+    var transformT = ((GameObject)Instantiate(prefab, new Vector3(spawnLine, e.height, 0), Quaternion.identity)).transform;
+    scrolling.Obstacles.Add(transformT);
+  }
+
+  void Start()
+  {
+    for (int i = 0; i < 120; i += 5)
     {
-        timeline.timeTick(Time.deltaTime);
+      timeline.Add(i, 0, ObstacleType.caveWalls);
     }
-	
-	void OnDrawGizmosSelected()
-	{
-		Gizmos.color = Color.green;
-		Gizmos.DrawLine(new Vector3(spawnLine,-10,0), new Vector3(spawnLine,10,0));
-	}
+    timeline.Add(2, 2.75f, ObstacleType.rockTop);
+    timeline.Add(8, -2, ObstacleType.rockBottom);
+    timeline.Add(20, 0, ObstacleType.narrowPassage);
+
+    timeline.OnSpawnEvent += spawnOnEvent;
+  }
+
+  // Update is called once per frame
+  void Update()
+  {
+    timeline.timeTick(Time.deltaTime);
+  }
+
+  void OnDrawGizmosSelected()
+  {
+    Gizmos.color = Color.green;
+    Gizmos.DrawLine(new Vector3(spawnLine, -10, 0), new Vector3(spawnLine, 10, 0));
+  }
 }

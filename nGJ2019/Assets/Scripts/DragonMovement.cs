@@ -232,7 +232,6 @@ public class DragonMovement : MonoBehaviour
 		EnemyCollider enemy = other.gameObject.GetComponent<EnemyCollider>();
 		if(enemy != null)
 		{
-			//Debug.Log(enemy.type == ObstacleType.alfa ? "alfa hit" : "beta hit");
 			healthBar.health--;
 		}
 	}
