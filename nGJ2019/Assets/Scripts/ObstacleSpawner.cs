@@ -8,6 +8,7 @@ public class ObstacleSpawner : MonoBehaviour
 	
 	public GameObject alfaPrefab;
 	public GameObject betaPrefab;
+    public LevelScrolling scrolling;
 	
 	public float spawnLine;
 	
@@ -21,15 +22,16 @@ public class ObstacleSpawner : MonoBehaviour
 		if(e.type == EventTimeline.SpawnEventType.beta)
 			prefab = betaPrefab;
 		
-		Instantiate(prefab, new Vector3(spawnLine, e.height, 0), Quaternion.identity);
+		var transformT = ((GameObject) Instantiate(prefab, new Vector3(spawnLine, e.height, 0), Quaternion.identity)).transform;
+        scrolling.Obstacles.Add(transformT);
 	}
 	
     void Start()
     {
-        timeline.Add(2, 2, EventTimeline.SpawnEventType.alfa);
-		timeline.Add(4, 2, EventTimeline.SpawnEventType.beta);
-		timeline.Add(5, -2, EventTimeline.SpawnEventType.beta);
-		timeline.Add(7, -3, EventTimeline.SpawnEventType.alfa);
+        for(int i = 0; i < 120; i += 5)
+        {
+            timeline.Add(i, 0, EventTimeline.SpawnEventType.alfa);
+        }
 		
 		timeline.OnSpawnEvent += spawnOnEvent;
     }

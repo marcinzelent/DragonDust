@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class LevelScrolling : MonoBehaviour
 {
-  public int updateRate = 1;
-  public Transform obstacles;
-  public Transform background;
+  public int UpdateRate = 1;
+  public List<Transform> Obstacles;
+  public Transform Background;
 
   private Vector3 initialBgPos;
   private float[] backgroundSize;
@@ -31,10 +31,10 @@ public class LevelScrolling : MonoBehaviour
 
   private void ResizeBackground()
   {
-    var sr = background.GetComponent<SpriteRenderer>();
+    var sr = Background.GetComponent<SpriteRenderer>();
     if (sr == null) return;
 
-    background.localScale = new Vector3(1, 1, 1);
+    Background.localScale = new Vector3(1, 1, 1);
 
     var width = sr.sprite.bounds.size.x;
     var height = sr.sprite.bounds.size.y;
@@ -45,22 +45,25 @@ public class LevelScrolling : MonoBehaviour
     var finalHeight = (float)(worldScreenHeight / height);
     var finalWidth = (float)(worldScreenWidth / width);
 
-    background.localScale = new Vector3(finalHeight, finalHeight, 1);
+    Background.localScale = new Vector3(finalHeight, finalHeight, 1);
 
     var viewportX = Camera.main.ViewportToWorldPoint(new Vector3(0, 1, 0)).x;
-    background.position = new Vector3(viewportX * -1, 0, 0);
-    initialBgPos = background.position;
+    Background.position = new Vector3(viewportX * -1, 0, 0);
+    initialBgPos = Background.position;
   }
 
   private void MoveObstacles()
   {
-    obstacles.Translate(new Vector2(0.1f * updateRate, 0));
+    foreach (var o in Obstacles)
+    {
+        o.Translate(new Vector2(0.01f * UpdateRate, 0));
+    }
   }
 
   private void MoveBackground()
   {
-    if (background.position.x > -initialBgPos.x)
-      background.Translate(new Vector2(0.1f * updateRate, 0));
-    else background.position = initialBgPos;
+    if (Background.position.x > -initialBgPos.x)
+      Background.Translate(new Vector2(0.01f * UpdateRate, 0));
+    else Background.position = initialBgPos;
   }
 }
