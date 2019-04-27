@@ -63,7 +63,7 @@ public class LevelScrolling : MonoBehaviour
 
     void DestroyObstacles()
     {
-        if (Obstacles[0].transform.position.x < -30)
+        if (Obstacles.Count > 0 && Obstacles[0].transform.position.x < -30)
         {
             Destroy(Obstacles[0]);
             Obstacles.RemoveAt(0);
