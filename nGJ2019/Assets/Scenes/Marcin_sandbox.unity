@@ -186,7 +186,7 @@ PrefabInstance:
     - target: {fileID: 1998900778231223134, guid: 1955f0f25a1504ef6978634b4e8986ca,
         type: 3}
       propertyPath: m_Name
-      value: Obstacles
+      value: CaveWalls1
       objectReference: {fileID: 0}
     - target: {fileID: 1998900778231223133, guid: 1955f0f25a1504ef6978634b4e8986ca,
         type: 3}
@@ -458,9 +458,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d21b52c27ae54df1b6a3f5da24c11e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  alfaPrefab: {fileID: 1998900778231223134, guid: 1955f0f25a1504ef6978634b4e8986ca,
+  caveWallsPrefab: {fileID: 1998900778231223134, guid: 1955f0f25a1504ef6978634b4e8986ca,
     type: 3}
-  betaPrefab: {fileID: 0}
+  rockTopPrefab: {fileID: 2825962919672506772, guid: facec2f96803c4c4b9b62c8e259a993b,
+    type: 3}
+  rockBottomPrefab: {fileID: 264553704504758048, guid: 61077335c23f94734a98510f8775f6c7,
+    type: 3}
+  narrowPassagePrefab: {fileID: 1998900778231223134, guid: ce339cccf24f74448af698eb997a3d95,
+    type: 3}
+  rockJawsPrefab: {fileID: 0}
   scrolling: {fileID: 202725831}
   spawnLine: 13.5
 --- !u!1001 &1920748800
@@ -473,7 +479,7 @@ PrefabInstance:
     - target: {fileID: 1998900778231223134, guid: 1955f0f25a1504ef6978634b4e8986ca,
         type: 3}
       propertyPath: m_Name
-      value: Obstacles (1)
+      value: CaveWalls2
       objectReference: {fileID: 0}
     - target: {fileID: 1998900778231223133, guid: 1955f0f25a1504ef6978634b4e8986ca,
         type: 3}

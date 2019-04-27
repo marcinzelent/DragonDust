@@ -2,4 +2,4 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum ObstacleType {alfa, beta}
+public enum ObstacleType { caveWalls, rockTop, rockBottom, narrowPassage, rockJaws }
