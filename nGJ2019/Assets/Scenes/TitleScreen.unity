@@ -189,13 +189,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 202725830}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 218d588953d1b4b589c560e11b6588f4, type: 3}
+  m_Script: {fileID: 11500000, guid: aaf20d9fc2cd6804e8bd7774f129d61a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   UpdateRate: -10
   Obstacles:
-  - {fileID: 1359531025}
-  - {fileID: 1133548864}
+  - {fileID: 963179642}
+  - {fileID: 1920748801}
   Background: {fileID: 1342555977}
 --- !u!4 &202725832
 Transform:
@@ -318,7 +318,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 762447638}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90b9adb2719954b53b69b9dc121082f2, type: 3}
+  m_Script: {fileID: 11500000, guid: 37ad83f716361f142917156690ed3186, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   MainText: {fileID: 1427683653}
@@ -538,11 +538,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1955f0f25a1504ef6978634b4e8986ca, type: 3}
---- !u!1 &1133548864 stripped
+--- !u!1 &963179642 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1998900778231223134, guid: 1955f0f25a1504ef6978634b4e8986ca,
     type: 3}
-  m_PrefabInstance: {fileID: 1920748800}
+  m_PrefabInstance: {fileID: 963179641}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1196247045
 GameObject:
@@ -689,12 +689,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1359531025 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1998900778231223134, guid: 1955f0f25a1504ef6978634b4e8986ca,
-    type: 3}
-  m_PrefabInstance: {fileID: 963179641}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1427683651
 GameObject:
   m_ObjectHideFlags: 0
@@ -905,7 +899,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1576648786}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d21b52c27ae54df1b6a3f5da24c11e2, type: 3}
+  m_Script: {fileID: 11500000, guid: d769188f2214e9f448de88193d84f4a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   caveWallsPrefab: {fileID: 1998900778231223134, guid: 1955f0f25a1504ef6978634b4e8986ca,
@@ -921,7 +915,7 @@ MonoBehaviour:
   netPrefab: {fileID: 5435085934957895830, guid: 459b4334249a5491ca7e8e02a92f8141,
     type: 3}
   scrolling: {fileID: 202725831}
-  spawnLine: 13.5
+  spawnLine: 15
 --- !u!1 &1695765865
 GameObject:
   m_ObjectHideFlags: 0
@@ -1092,6 +1086,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1955f0f25a1504ef6978634b4e8986ca, type: 3}
+--- !u!1 &1920748801 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1998900778231223134, guid: 1955f0f25a1504ef6978634b4e8986ca,
+    type: 3}
+  m_PrefabInstance: {fileID: 1920748800}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1928510844
 GameObject:
   m_ObjectHideFlags: 0

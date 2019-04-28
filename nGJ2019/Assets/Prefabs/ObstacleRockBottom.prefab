@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3886813090550119731}
   - component: {fileID: 5594498704066045325}
-  - component: {fileID: 6017278592914902894}
+  - component: {fileID: 3675046122100622806}
   m_Layer: 0
   m_Name: ObstacleRockBottom
   m_TagString: Untagged
@@ -49,7 +49,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 7.15, y: 4.08, z: 1}
   m_Center: {x: 0.27, y: 0, z: -1.08}
---- !u!114 &6017278592914902894
+--- !u!114 &3675046122100622806
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
