@@ -25,6 +25,8 @@ public class Messenger : MonoBehaviour
             timeline.Add(43, "");
             timeline.Add(55, "PRESS K TO SPLIT INTO PARTICLES AND GO THROUGH THE NET");
             timeline.Add(59, "");
+            timeline.Add(62, "CONGRATULATIONS, YOU FINISHED THE TUTORIAL");
+            timeline.Add(65, "YOU CAN NOW TEST YOUR SKILL IN A REAL LEVEL");
         }
 
         timeline.OnMessageEvent += MessageOnEvent;
