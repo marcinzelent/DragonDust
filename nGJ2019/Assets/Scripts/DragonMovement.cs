@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class DragonMovement : MonoBehaviour
 {
@@ -280,6 +281,13 @@ public class DragonMovement : MonoBehaviour
 		Destroy(t.gameObject);
 	}
 	
+	private IEnumerator eventuallyStartOver()
+	{
+		for(int i=0; i<400; i++)
+			yield return new WaitForSeconds(0.01f);
+		SceneManager.LoadScene("Titlescreen");
+	}
+	
 	private void getHurt()
 	{
 		if(hurtCooldown <= 0)
@@ -292,6 +300,7 @@ public class DragonMovement : MonoBehaviour
 					Transform t = ((GameObject)Instantiate(hurtPrefab, transform.position + swarm.collapseCenter, Quaternion.identity)).transform;
 					StartCoroutine(makeGoAway(t, 6));
 				}
+				StartCoroutine(eventuallyStartOver());
 				turnVisible(false);
 				swarm.activate(false);
 			}
