@@ -966,9 +966,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   caveWallsPrefab: {fileID: 1998900778231223134, guid: 1955f0f25a1504ef6978634b4e8986ca,
     type: 3}
-  rockTopPrefab: {fileID: 2825962919672506772, guid: facec2f96803c4c4b9b62c8e259a993b,
+  rockTopPrefab: {fileID: 1026017451412990472, guid: 326e0dfc5f5644f09bd3ca38f4834a54,
     type: 3}
-  rockBottomPrefab: {fileID: 264553704504758048, guid: 61077335c23f94734a98510f8775f6c7,
+  rockBottomPrefab: {fileID: 3267887723164728866, guid: 81b0bc34beb9d4c64adf5be967205dbf,
     type: 3}
   narrowPassagePrefab: {fileID: 1998900778231223134, guid: ce339cccf24f74448af698eb997a3d95,
     type: 3}
