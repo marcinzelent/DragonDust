@@ -17,6 +17,8 @@ public class DragonMovement : MonoBehaviour
 	public float horizontalBound = 6f;	
 	public float verticalBound = 4f;
 	
+	private float slitherPhase = 0;
+	
 	public HealthBar healthBar;
 	
 	private float hurtCooldown = 0;
@@ -188,12 +190,25 @@ public class DragonMovement : MonoBehaviour
 		
 		if(transform.position.x > horizontalBound)
 			transform.position = new Vector3(horizontalBound, transform.position.y, transform.position.z);
+		
+		slitherPhase += 0.1f;
+		foreach(Transform t in swarm.meshRender.bones)
+		{
+			t.Translate(new Vector3(0, Mathf.Sin(t.position.x-transform.position.x+slitherPhase)*0.002f, 0), Space.World);
+		}
+		foreach(Renderer r in solids)
+		{
+			r.transform.Translate(new Vector3(0, Mathf.Sin(r.transform.position.x-transform.position.x+slitherPhase+0.2f)*-0.008f, 0), Space.World);
+		}
 	}
 	
 	void Update()
 	{
 		if(hurtCooldown > 0)
 			hurtCooldown -= Time.deltaTime;
+		
+		if(healthBar.health <= 0)
+			return;
 		
 		// keyboard scheme
 		if(Input.GetKey("w"))
@@ -253,11 +268,11 @@ public class DragonMovement : MonoBehaviour
 		Gizmos.DrawWireCube(Vector3.zero, new Vector3(2*horizontalBound, 2*verticalBound, 0));
 	}
 	
-	private IEnumerator makeGoAway(Transform t)
+	private IEnumerator makeGoAway(Transform t, float spread)
 	{
 		Vector3 delta = Random.onUnitSphere * Random.Range(0.03f, 0.1f);
 		Vector3 start = t.position;
-		while((start-t.position).magnitude < 3)
+		while((start-t.position).magnitude < spread)
 		{
 			t.Translate(delta);
 			yield return new WaitForSeconds(0.01f);
@@ -270,12 +285,25 @@ public class DragonMovement : MonoBehaviour
 		if(hurtCooldown <= 0)
 		{
 			healthBar.health--;
-			hurtCooldown = 3;
-			
-			for(int i=0; i<30; i++)
+			if(healthBar.health == 0)
 			{
-				Transform t = ((GameObject)Instantiate(hurtPrefab, transform.position + swarm.collapseCenter, Quaternion.identity)).transform;
-				StartCoroutine(makeGoAway(t));
+				for(int i=0; i<200; i++)
+				{
+					Transform t = ((GameObject)Instantiate(hurtPrefab, transform.position + swarm.collapseCenter, Quaternion.identity)).transform;
+					StartCoroutine(makeGoAway(t, 6));
+				}
+				turnVisible(false);
+				swarm.activate(false);
+			}
+			else if(healthBar.health > 0)
+			{
+				hurtCooldown = 1.5f;
+				
+				for(int i=0; i<30; i++)
+				{
+					Transform t = ((GameObject)Instantiate(hurtPrefab, transform.position + swarm.collapseCenter, Quaternion.identity)).transform;
+					StartCoroutine(makeGoAway(t, 3));
+				}
 			}
 		}
 	}
