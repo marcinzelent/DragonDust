@@ -15,7 +15,7 @@ public class TitleScreen : MonoBehaviour
 
     public void ToLevel1()
     {
-        SceneManager.LoadScene("Level1");
+        SceneManager.LoadScene("Tutorial");
     }
 
     public void Quit()
