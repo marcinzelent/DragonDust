@@ -292,6 +292,7 @@ public class DragonMovement : MonoBehaviour
 	{
 		if(hurtCooldown <= 0)
 		{
+            GetComponent<AudioSource>().Play();
 			healthBar.health--;
 			if(healthBar.health == 0)
 			{
