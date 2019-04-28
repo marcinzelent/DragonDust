@@ -17,6 +17,8 @@ public class DragonMovement : MonoBehaviour
 	public float horizontalBound = 6f;	
 	public float verticalBound = 4f;
 	
+	private float slitherPhase = 0;
+	
 	public HealthBar healthBar;
 	
 	private float hurtCooldown = 0;
@@ -188,6 +190,16 @@ public class DragonMovement : MonoBehaviour
 		
 		if(transform.position.x > horizontalBound)
 			transform.position = new Vector3(horizontalBound, transform.position.y, transform.position.z);
+		
+		slitherPhase += 0.1f;
+		foreach(Transform t in swarm.meshRender.bones)
+		{
+			t.Translate(new Vector3(0, Mathf.Sin(t.position.x-transform.position.x+slitherPhase)*0.002f, 0), Space.World);
+		}
+		foreach(Renderer r in solids)
+		{
+			r.transform.Translate(new Vector3(0, Mathf.Sin(r.transform.position.x-transform.position.x+slitherPhase+0.2f)*-0.008f, 0), Space.World);
+		}
 	}
 	
 	void Update()
