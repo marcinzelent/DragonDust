@@ -558,7 +558,7 @@ PrefabInstance:
     - target: {fileID: 1540055299232912360, guid: 439782ce0455fb740be2c55da31ff44f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.13672495
+      value: -1.09
       objectReference: {fileID: 0}
     - target: {fileID: 1540055299232912360, guid: 439782ce0455fb740be2c55da31ff44f,
         type: 3}
@@ -871,7 +871,7 @@ MonoBehaviour:
     type: 3}
   liveCrystal: {fileID: 2100000, guid: d19c2d3c342b20c46b03be1f5369081d, type: 2}
   deadCrystal: {fileID: 2100000, guid: a772733e42c983144b0a01570895aa30, type: 2}
-  lives: 10
+  lives: 3
 --- !u!4 &1651299503
 Transform:
   m_ObjectHideFlags: 0

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -73,14 +74,34 @@ public class ObstacleSpawner : MonoBehaviour
         }
         else if (scene.name == "Level1")
         {
+            System.Random random = new System.Random();
             for (int i = 0; i < 1000; i++)
             {
-                timeline.Add(i * 2.5f, new Vector3(0, 0, 0), ObstacleType.caveWalls);
-                timeline.Add(i * 12.5f + 3, new Vector3(0, 2.75f, 0), ObstacleType.rockTop);
-                timeline.Add(i * 12.5f + 6, new Vector3(0, -2, 0), ObstacleType.rockBottom);
-                timeline.Add(i * 12.5f + 9, new Vector3(0, 0, 0), ObstacleType.narrowPassage);
-                timeline.Add(i * 12.5f + 12.5f, new Vector3(0, -2.5f, 2), ObstacleType.rockJaws);
-                timeline.Add(i * 12.5f + 15f, new Vector3(0, 0.5f, 3), ObstacleType.net);
+                timeline.Add(i * 2.5f, new Vector3(0,0,0), ObstacleType.caveWalls);
+
+                Array values = Enum.GetValues(typeof(ObstacleType));
+                ObstacleType randomObstacle = (ObstacleType)values.GetValue(random.Next(values.Length));
+                Vector3 position;
+
+                switch (randomObstacle)
+                {
+                    case ObstacleType.rockTop:
+                        position = new Vector3(0, 2.75f, 0);
+                        break;
+                    case ObstacleType.rockBottom:
+                        position = new Vector3(0, -2, 0);
+                        break;
+                    case ObstacleType.rockJaws:
+                        position = new Vector3(0, -2.5f, 2);
+                        break;
+                    case ObstacleType.net:
+                        position = new Vector3(0, 0.5f, 3);
+                        break;
+                    default:
+                        position = new Vector3(0,0,0);
+                        break;
+                }
+                timeline.Add(i * 4, position, randomObstacle);
             }
         }
 

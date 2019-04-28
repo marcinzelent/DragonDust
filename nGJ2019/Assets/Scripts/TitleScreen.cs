@@ -13,7 +13,7 @@ public class TitleScreen : MonoBehaviour
             Application.Quit();
     }
 
-    public void ToLevel1()
+    public void OpenTutorial()
     {
         SceneManager.LoadScene("Tutorial");
     }
