@@ -6,8 +6,13 @@ public class DragonMovement : MonoBehaviour
 {
 	public List<Renderer> solids;
 	
+	public GameObject hurtPrefab;
+	
 	public float horizontalSpeed = 0.1f;	
 	public float verticalSpeed = 0.2f;	
+	
+	private Vector3 direcV = Vector3.zero;
+	private Vector3 deltaV = Vector3.zero;
 	
 	public float horizontalBound = 6f;	
 	public float verticalBound = 4f;
@@ -20,33 +25,30 @@ public class DragonMovement : MonoBehaviour
 	
 	private enum State {normal, swirl, slim, spread};
 	private State state = State.normal;
+	
+	private void applyMotion(Vector3 direc)
+	{
+		direcV = direcV + direc;
+	}
 		
 	private void moveUp()
 	{
-		transform.Translate(Vector3.up * verticalSpeed);
-		if(transform.position.y > verticalBound)
-			transform.position = new Vector3(transform.position.x, verticalBound, transform.position.z);
+		applyMotion(Vector3.up * verticalSpeed);
 	}
 	
 	private void moveDown()
 	{
-		transform.Translate(Vector3.down * verticalSpeed);
-		if(transform.position.y < -verticalBound)
-			transform.position = new Vector3(transform.position.x, -verticalBound, transform.position.z);
+		applyMotion(Vector3.down * verticalSpeed);
 	}
 	
 	private void moveLeft()
 	{
-		transform.Translate(Vector3.left * horizontalSpeed);
-		if(transform.position.x < -horizontalBound)
-			transform.position = new Vector3(-horizontalBound, transform.position.y, transform.position.z);
+		applyMotion(Vector3.left * horizontalSpeed);
 	}
 	
 	private void moveRight()
 	{
-		transform.Translate(Vector3.right * horizontalSpeed);
-		if(transform.position.x > horizontalBound)
-			transform.position = new Vector3(horizontalBound, transform.position.y, transform.position.z);
+		applyMotion(Vector3.right * horizontalSpeed);
 	}
 	
 	private void turnVisible(bool visible)
@@ -169,9 +171,28 @@ public class DragonMovement : MonoBehaviour
 		swarm.activate(false);
 	}
 	
+	void FixedUpdate()
+	{
+		transform.Translate(deltaV);
+		deltaV = 0.6f*deltaV + 0.4f*direcV;
+		direcV = Vector3.zero;
+		
+		if(transform.position.y > verticalBound)
+			transform.position = new Vector3(transform.position.x, verticalBound, transform.position.z);
+		
+		if(transform.position.y < -verticalBound)
+			transform.position = new Vector3(transform.position.x, -verticalBound, transform.position.z);
+		
+		if(transform.position.x < -horizontalBound)
+			transform.position = new Vector3(-horizontalBound, transform.position.y, transform.position.z);
+		
+		if(transform.position.x > horizontalBound)
+			transform.position = new Vector3(horizontalBound, transform.position.y, transform.position.z);
+	}
+	
 	void Update()
 	{
-		if(hurtCooldown < 0)
+		if(hurtCooldown > 0)
 			hurtCooldown -= Time.deltaTime;
 		
 		// keyboard scheme
@@ -232,12 +253,30 @@ public class DragonMovement : MonoBehaviour
 		Gizmos.DrawWireCube(Vector3.zero, new Vector3(2*horizontalBound, 2*verticalBound, 0));
 	}
 	
+	private IEnumerator makeGoAway(Transform t)
+	{
+		Vector3 delta = Random.onUnitSphere * Random.Range(0.03f, 0.1f);
+		Vector3 start = t.position;
+		while((start-t.position).magnitude < 3)
+		{
+			t.Translate(delta);
+			yield return new WaitForSeconds(0.01f);
+		}
+		Destroy(t.gameObject);
+	}
+	
 	private void getHurt()
 	{
 		if(hurtCooldown <= 0)
 		{
 			healthBar.health--;
 			hurtCooldown = 3;
+			
+			for(int i=0; i<30; i++)
+			{
+				Transform t = ((GameObject)Instantiate(hurtPrefab, transform.position + swarm.collapseCenter, Quaternion.identity)).transform;
+				StartCoroutine(makeGoAway(t));
+			}
 		}
 	}
 	
@@ -246,7 +285,23 @@ public class DragonMovement : MonoBehaviour
 		EnemyCollider enemy = other.gameObject.GetComponent<EnemyCollider>();
 		if(enemy != null)
 		{
-			getHurt();
+			switch(enemy.type)
+			{
+				case ObstacleType.caveWalls:
+				case ObstacleType.rockTop:
+				case ObstacleType.rockBottom:
+				case ObstacleType.rockJaws:
+					getHurt();
+					break;
+				case ObstacleType.narrowPassage:
+					if(state != State.slim)
+						getHurt();
+					break;
+				case ObstacleType.net:
+					if(state != State.spread)
+						getHurt();	
+					break;
+			}
 		}
 	}
 	

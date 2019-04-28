@@ -59,7 +59,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3956812704593654807}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.143, y: 0, z: 0}
   m_LocalScale: {x: 0.17713054, y: 0.17713054, z: 0.17713054}
   m_Children: []
   m_Father: {fileID: 7771521336157481751}
@@ -112,7 +112,7 @@ TrailRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.1463004
+        value: 0.30123052
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -120,8 +120,8 @@ TrailRenderer:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.4998979
-        value: 0.15165684
+        time: 0.48891157
+        value: 0.2925031
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -129,8 +129,8 @@ TrailRenderer:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.9210868
-        value: 0
+        time: 0.9155936
+        value: 0.098594666
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -205,17 +205,17 @@ PrefabInstance:
     - target: {fileID: 7341443742164647049, guid: 594cdcc1eff6dcd439f373be7d777373,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.143
       objectReference: {fileID: 0}
     - target: {fileID: 7341443742164647049, guid: 594cdcc1eff6dcd439f373be7d777373,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.4592426
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7341443742164647049, guid: 594cdcc1eff6dcd439f373be7d777373,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.9630866
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7341443742164647049, guid: 594cdcc1eff6dcd439f373be7d777373,
         type: 3}
@@ -260,17 +260,17 @@ PrefabInstance:
     - target: {fileID: 7341443742164647049, guid: 594cdcc1eff6dcd439f373be7d777373,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.29556
+      value: 0.17713054
       objectReference: {fileID: 0}
     - target: {fileID: 7341443742164647049, guid: 594cdcc1eff6dcd439f373be7d777373,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.29556
+      value: 0.17713054
       objectReference: {fileID: 0}
     - target: {fileID: 7341443742164647049, guid: 594cdcc1eff6dcd439f373be7d777373,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.29556
+      value: 0.17713054
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
