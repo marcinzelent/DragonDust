@@ -23,15 +23,18 @@ public class RockJaws : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (TopJaw.localPosition.y < BottomJaw.localPosition.y) reverse = true;
-        else if(TopJaw.localPosition.y > initialTopJawY) reverse = false;
+        var topJawHeight= TopJaw.GetComponent<MeshRenderer>().bounds.size.y;
+        var bottomJawHeight= BottomJaw.GetComponent<MeshRenderer>().bounds.size.y;
+
+        if (TopJaw.localPosition.y - topJawHeight / 2 < BottomJaw.localPosition.y + bottomJawHeight / 2) reverse = true;
+        else if(TopJaw.localPosition.y > initialTopJawY) reverse = false;   
 
         if (!reverse) {
-            TopJaw.Translate(0, -0.01f * Speed, 0);
-            BottomJaw.Translate(0, 0.01f * Speed, 0);
+            TopJaw.Translate(0, -0.01f * Speed, 0, Space.World);
+            BottomJaw.Translate(0, 0.01f * Speed, 0, Space.World);
         } else {
-            TopJaw.Translate(0, 0.01f * Speed, 0);
-            BottomJaw.Translate(0, -0.01f * Speed, 0);
+            TopJaw.Translate(0, 0.01f * Speed, 0, Space.World);
+            BottomJaw.Translate(0, -0.01f * Speed, 0, Space.World);
         }
     }
 }

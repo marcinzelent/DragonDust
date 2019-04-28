@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -50,7 +50,7 @@ public class ObstacleSpawner : MonoBehaviour
         timeline.Add(0, new Vector3(0, 2.75f, 0), ObstacleType.rockTop);
         timeline.Add(6, new Vector3(0, -2, 0), ObstacleType.rockBottom);
         timeline.Add(12, new Vector3(0, 0, 0), ObstacleType.narrowPassage);
-        timeline.Add(20, new Vector3(0, 0, 2), ObstacleType.rockJaws);
+        timeline.Add(20, new Vector3(0, -2.5f, 2), ObstacleType.rockJaws);
         timeline.Add(25, new Vector3(0, 0.5f, 3), ObstacleType.net);
 
         timeline.OnSpawnEvent += spawnOnEvent;
