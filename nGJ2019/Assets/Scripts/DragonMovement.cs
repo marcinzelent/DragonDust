@@ -207,6 +207,9 @@ public class DragonMovement : MonoBehaviour
 		if(hurtCooldown > 0)
 			hurtCooldown -= Time.deltaTime;
 		
+		if(healthBar.health <= 0)
+			return;
+		
 		// keyboard scheme
 		if(Input.GetKey("w"))
 			moveUp();
@@ -265,11 +268,11 @@ public class DragonMovement : MonoBehaviour
 		Gizmos.DrawWireCube(Vector3.zero, new Vector3(2*horizontalBound, 2*verticalBound, 0));
 	}
 	
-	private IEnumerator makeGoAway(Transform t)
+	private IEnumerator makeGoAway(Transform t, float spread)
 	{
 		Vector3 delta = Random.onUnitSphere * Random.Range(0.03f, 0.1f);
 		Vector3 start = t.position;
-		while((start-t.position).magnitude < 3)
+		while((start-t.position).magnitude < spread)
 		{
 			t.Translate(delta);
 			yield return new WaitForSeconds(0.01f);
@@ -282,12 +285,25 @@ public class DragonMovement : MonoBehaviour
 		if(hurtCooldown <= 0)
 		{
 			healthBar.health--;
-			hurtCooldown = 3;
-			
-			for(int i=0; i<30; i++)
+			if(healthBar.health == 0)
 			{
-				Transform t = ((GameObject)Instantiate(hurtPrefab, transform.position + swarm.collapseCenter, Quaternion.identity)).transform;
-				StartCoroutine(makeGoAway(t));
+				for(int i=0; i<200; i++)
+				{
+					Transform t = ((GameObject)Instantiate(hurtPrefab, transform.position + swarm.collapseCenter, Quaternion.identity)).transform;
+					StartCoroutine(makeGoAway(t, 6));
+				}
+				turnVisible(false);
+				swarm.activate(false);
+			}
+			else if(healthBar.health > 0)
+			{
+				hurtCooldown = 1.5f;
+				
+				for(int i=0; i<30; i++)
+				{
+					Transform t = ((GameObject)Instantiate(hurtPrefab, transform.position + swarm.collapseCenter, Quaternion.identity)).transform;
+					StartCoroutine(makeGoAway(t, 3));
+				}
 			}
 		}
 	}
