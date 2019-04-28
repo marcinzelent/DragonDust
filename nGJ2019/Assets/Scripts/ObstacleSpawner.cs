@@ -56,6 +56,18 @@ public class ObstacleSpawner : MonoBehaviour
                 timeline.Add(i * 12.5f + 15f, new Vector3(0, 0.5f, 3), ObstacleType.net);
             }
         }
+        else if (scene.name == "Level1")
+        {
+            for (int i = 0; i < 1000; i++)
+            {
+                timeline.Add(i * 2.5f, new Vector3(0, 0, 0), ObstacleType.caveWalls);
+                timeline.Add(i * 12.5f + 3, new Vector3(0, 2.75f, 0), ObstacleType.rockTop);
+                timeline.Add(i * 12.5f + 6, new Vector3(0, -2, 0), ObstacleType.rockBottom);
+                timeline.Add(i * 12.5f + 9, new Vector3(0, 0, 0), ObstacleType.narrowPassage);
+                timeline.Add(i * 12.5f + 12.5f, new Vector3(0, -2.5f, 2), ObstacleType.rockJaws);
+                timeline.Add(i * 12.5f + 15f, new Vector3(0, 0.5f, 3), ObstacleType.net);
+            }
+        }
 
         timeline.OnSpawnEvent += spawnOnEvent;
     }
