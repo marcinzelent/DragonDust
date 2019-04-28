@@ -6,8 +6,12 @@ public class SwarmSystem : MonoBehaviour
 	public GameObject swarmPrefab;
 	public GameObject anchorPrefab;
 	public int size = 1;
+	public Vector3 collapseCenter;
+	
+	public SkinnedMeshRenderer meshRender;
 	
 	public bool showGuides = false;
+	public bool showMesh = false;
 	
 	private List<Transform> units = new List<Transform>();
 	private List<Transform> anchors = new List<Transform>();
@@ -19,8 +23,6 @@ public class SwarmSystem : MonoBehaviour
 	private List<Transform> boneTips = new List<Transform>();
 	private List<int> boneCenterStarts = new List<int>();
 	private List<float> boneCenterDists = new List<float>();
-	
-	private SkinnedMeshRenderer meshRender;
 	
 	private List<int> unitTris = new List<int>();
 	private List<List<int>> triGraph;
@@ -334,8 +336,6 @@ public class SwarmSystem : MonoBehaviour
 	
 	void Start()
 	{
-		meshRender = GetComponentInChildren<SkinnedMeshRenderer>();
-		
 		mapBones();
 		
 		refreshMesh();
@@ -372,7 +372,9 @@ public class SwarmSystem : MonoBehaviour
 			
 			unit.position = anchors[u].position + Noise*noiseDirecs[u];
 			
-			Vector3 collapsedPos = Vector3.Project(unit.position - transform.position, Vector3.right) + transform.position;
+			Vector3 coll = transform.position + collapseCenter;
+			
+			Vector3 collapsedPos = Vector3.Project(unit.position - coll, Vector3.right)*0.3f + coll;
 			
 			unit.position = (1-Collapse)*unit.position + Collapse*collapsedPos;
 		}
@@ -382,8 +384,6 @@ public class SwarmSystem : MonoBehaviour
 	{
 		if(showGuides)
 		{
-			meshRender = GetComponentInChildren<SkinnedMeshRenderer>();
-			
 			mapBones();
 			refreshMesh();
 			
@@ -398,12 +398,13 @@ public class SwarmSystem : MonoBehaviour
 			
 			Mesh mesh = getCurrentMesh();
 			
-			for(int i=0; i<mesh.triangles.Length; i+=3)
-			{
-				//Gizmos.DrawSphere(meshRender.transform.TransformPoint(mesh.vertices[mesh.triangles[i]]), 0.1f);
-				//Gizmos.DrawSphere(meshRender.transform.TransformPoint(mesh.vertices[mesh.triangles[i+1]]), 0.1f);
-				//Gizmos.DrawSphere(meshRender.transform.TransformPoint(mesh.vertices[mesh.triangles[i+2]]), 0.1f);
-			}
+			if(showMesh)
+				for(int i=0; i<mesh.triangles.Length; i+=3)
+				{
+					Gizmos.DrawSphere(meshRender.transform.TransformPoint(mesh.vertices[mesh.triangles[i]]), 0.1f);
+					Gizmos.DrawSphere(meshRender.transform.TransformPoint(mesh.vertices[mesh.triangles[i+1]]), 0.1f);
+					Gizmos.DrawSphere(meshRender.transform.TransformPoint(mesh.vertices[mesh.triangles[i+2]]), 0.1f);
+				}
 			
 			int tri = 0;
 			
@@ -426,6 +427,9 @@ public class SwarmSystem : MonoBehaviour
 			Gizmos.DrawLine(meshRender.transform.TransformPoint(mesh.vertices[mesh.triangles[tri*3]]),  meshRender.transform.TransformPoint(mesh.vertices[mesh.triangles[tri*3+1]]));
 			Gizmos.DrawLine(meshRender.transform.TransformPoint(mesh.vertices[mesh.triangles[tri*3+1]]), meshRender.transform.TransformPoint(mesh.vertices[mesh.triangles[tri*3+2]]));
 			Gizmos.DrawLine(meshRender.transform.TransformPoint(mesh.vertices[mesh.triangles[tri*3+2]]), meshRender.transform.TransformPoint(mesh.vertices[mesh.triangles[tri*3]]));
+			
+			Gizmos.color = Color.green;
+			Gizmos.DrawLine(transform.position + collapseCenter - Vector3.right*5, transform.position + collapseCenter + Vector3.right*5);
 			
 		}
 	}
