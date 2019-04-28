@@ -38,7 +38,7 @@ public class HealthBar : MonoBehaviour
     {
         for(int i=0; i<lives; i++)
 		{
-			GameObject crystal = Instantiate(crystalPrefab, transform.position + Vector3.right*0.5f*i, Quaternion.identity);
+			GameObject crystal = Instantiate(crystalPrefab, transform.position + Vector3.right*0.8f*i, Quaternion.identity);
 			crystals.Add(crystal.GetComponentInChildren<Renderer>());
 		}
 		
