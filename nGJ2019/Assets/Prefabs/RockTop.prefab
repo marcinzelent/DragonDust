@@ -67,6 +67,8 @@ GameObject:
   - component: {fileID: 2935206100815447055}
   - component: {fileID: 7944840756995669057}
   - component: {fileID: 9136870460619054276}
+  - component: {fileID: 4208932094440074411}
+  - component: {fileID: 3286592456482061485}
   m_Layer: 0
   m_Name: GeoSphere053
   m_TagString: Untagged
@@ -113,7 +115,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 670224309865224971, guid: 98c7754d6397048d6a5ef04c5f26e92e, type: 3}
+  - {fileID: 2100000, guid: c18c2364bc51f4e96bd123cacc413bce, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -133,6 +135,32 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &4208932094440074411
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5760639412618836386}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.19745898, y: 0.20335382, z: 0.21659684}
+  m_Center: {x: -0.0015515126, y: 0.004060127, z: 0.00814182}
+--- !u!114 &3286592456482061485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5760639412618836386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59a101027e69992449080dd35f887c3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 1
 --- !u!1 &6006950037567477398
 GameObject:
   m_ObjectHideFlags: 0
@@ -144,6 +172,8 @@ GameObject:
   - component: {fileID: 8815575855097434579}
   - component: {fileID: 8030514035688607164}
   - component: {fileID: 5169552159440837770}
+  - component: {fileID: 4730654299064226253}
+  - component: {fileID: 8185228542160153379}
   m_Layer: 0
   m_Name: GeoSphere052
   m_TagString: Untagged
@@ -190,7 +220,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 670224309865224971, guid: 98c7754d6397048d6a5ef04c5f26e92e, type: 3}
+  - {fileID: 2100000, guid: c18c2364bc51f4e96bd123cacc413bce, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -210,6 +240,32 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &4730654299064226253
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6006950037567477398}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.19745898, y: 0.20335379, z: 0.2165968}
+  m_Center: {x: -0.0015515126, y: 0.0040601185, z: 0.008141817}
+--- !u!114 &8185228542160153379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6006950037567477398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59a101027e69992449080dd35f887c3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 1
 --- !u!1 &7345716142608844015
 GameObject:
   m_ObjectHideFlags: 0
@@ -221,6 +277,8 @@ GameObject:
   - component: {fileID: 8427103156562142955}
   - component: {fileID: 1491943847224024442}
   - component: {fileID: 396184955793751051}
+  - component: {fileID: 4583403430866749652}
+  - component: {fileID: 2474274322605199950}
   m_Layer: 0
   m_Name: GeoSphere050
   m_TagString: Untagged
@@ -267,7 +325,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 670224309865224971, guid: 98c7754d6397048d6a5ef04c5f26e92e, type: 3}
+  - {fileID: 2100000, guid: c18c2364bc51f4e96bd123cacc413bce, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -287,6 +345,32 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &4583403430866749652
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7345716142608844015}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.19745898, y: 0.20335382, z: 0.21659684}
+  m_Center: {x: -0.0015515126, y: 0.004060127, z: 0.00814182}
+--- !u!114 &2474274322605199950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7345716142608844015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59a101027e69992449080dd35f887c3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 1
 --- !u!1 &7777049379818066786
 GameObject:
   m_ObjectHideFlags: 0
@@ -298,6 +382,8 @@ GameObject:
   - component: {fileID: 6279527168613019151}
   - component: {fileID: 1237780451318123861}
   - component: {fileID: 4179903136667970061}
+  - component: {fileID: 5786307165154369480}
+  - component: {fileID: 6764665298010002067}
   m_Layer: 0
   m_Name: GeoSphere054
   m_TagString: Untagged
@@ -344,7 +430,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 670224309865224971, guid: 98c7754d6397048d6a5ef04c5f26e92e, type: 3}
+  - {fileID: 2100000, guid: c18c2364bc51f4e96bd123cacc413bce, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -364,6 +450,32 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &5786307165154369480
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7777049379818066786}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.197459, y: 0.20335382, z: 0.21659683}
+  m_Center: {x: -0.0015515126, y: 0.004060127, z: 0.008141819}
+--- !u!114 &6764665298010002067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7777049379818066786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59a101027e69992449080dd35f887c3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 1
 --- !u!1 &8188054355602942132
 GameObject:
   m_ObjectHideFlags: 0
@@ -375,6 +487,8 @@ GameObject:
   - component: {fileID: 435515143221691230}
   - component: {fileID: 468261345350301973}
   - component: {fileID: 1138710996778242141}
+  - component: {fileID: 9066775150408993532}
+  - component: {fileID: 2561493981276667884}
   m_Layer: 0
   m_Name: GeoSphere051
   m_TagString: Untagged
@@ -421,7 +535,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 670224309865224971, guid: 98c7754d6397048d6a5ef04c5f26e92e, type: 3}
+  - {fileID: 2100000, guid: c18c2364bc51f4e96bd123cacc413bce, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -441,6 +555,32 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &9066775150408993532
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8188054355602942132}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.19745897, y: 0.20335387, z: 0.21659681}
+  m_Center: {x: -0.0015515127, y: 0.004060127, z: 0.008141823}
+--- !u!114 &2561493981276667884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8188054355602942132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59a101027e69992449080dd35f887c3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 1
 --- !u!1 &8801039878244091887
 GameObject:
   m_ObjectHideFlags: 0
@@ -452,6 +592,8 @@ GameObject:
   - component: {fileID: 4264763363413738923}
   - component: {fileID: 5098221504668950209}
   - component: {fileID: 8943563895652934534}
+  - component: {fileID: 2789572241391911417}
+  - component: {fileID: 168696309852968455}
   m_Layer: 0
   m_Name: GeoSphere049
   m_TagString: Untagged
@@ -498,7 +640,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 670224309865224971, guid: 98c7754d6397048d6a5ef04c5f26e92e, type: 3}
+  - {fileID: 2100000, guid: c18c2364bc51f4e96bd123cacc413bce, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -518,3 +660,29 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &2789572241391911417
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8801039878244091887}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.19745898, y: 0.20335385, z: 0.21659684}
+  m_Center: {x: -0.0015515126, y: 0.0040601273, z: 0.00814182}
+--- !u!114 &168696309852968455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8801039878244091887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59a101027e69992449080dd35f887c3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 1

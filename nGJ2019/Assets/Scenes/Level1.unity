@@ -170,18 +170,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!137 &684421193 stripped
-SkinnedMeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 6829653077879027395, guid: 439782ce0455fb740be2c55da31ff44f,
-    type: 3}
-  m_PrefabInstance: {fileID: 1494101563}
-  m_PrefabAsset: {fileID: 0}
---- !u!23 &696415087 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 6831756989294198273, guid: 439782ce0455fb740be2c55da31ff44f,
-    type: 3}
-  m_PrefabInstance: {fileID: 1494101563}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &762447638
 GameObject:
   m_ObjectHideFlags: 0
@@ -452,12 +440,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1998900778231223134, guid: 1955f0f25a1504ef6978634b4e8986ca,
     type: 3}
   m_PrefabInstance: {fileID: 963179641}
-  m_PrefabAsset: {fileID: 0}
---- !u!23 &1359874285 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 8784228374599439413, guid: 439782ce0455fb740be2c55da31ff44f,
-    type: 3}
-  m_PrefabInstance: {fileID: 1494101563}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1427683651
 GameObject:
@@ -752,22 +734,22 @@ PrefabInstance:
         type: 3}
       propertyPath: solids.Array.data[0]
       value: 
-      objectReference: {fileID: 696415087}
+      objectReference: {fileID: 0}
     - target: {fileID: 1540055299232912361, guid: 439782ce0455fb740be2c55da31ff44f,
         type: 3}
       propertyPath: solids.Array.data[1]
       value: 
-      objectReference: {fileID: 1930954936}
+      objectReference: {fileID: 0}
     - target: {fileID: 1540055299232912361, guid: 439782ce0455fb740be2c55da31ff44f,
         type: 3}
       propertyPath: solids.Array.data[2]
       value: 
-      objectReference: {fileID: 684421193}
+      objectReference: {fileID: 0}
     - target: {fileID: 1540055299232912361, guid: 439782ce0455fb740be2c55da31ff44f,
         type: 3}
       propertyPath: solids.Array.data[3]
       value: 
-      objectReference: {fileID: 1359874285}
+      objectReference: {fileID: 0}
     - target: {fileID: 1540055299232912365, guid: 439782ce0455fb740be2c55da31ff44f,
         type: 3}
       propertyPath: swarmPrefab
@@ -799,7 +781,7 @@ PrefabInstance:
         type: 3}
       propertyPath: meshRender
       value: 
-      objectReference: {fileID: 684421193}
+      objectReference: {fileID: 0}
     - target: {fileID: 1540055299232912365, guid: 439782ce0455fb740be2c55da31ff44f,
         type: 3}
       propertyPath: collapseCenter.z
@@ -815,6 +797,11 @@ PrefabInstance:
       propertyPath: collapseCenter.x
       value: 2.26
       objectReference: {fileID: 0}
+    - target: {fileID: 6304280658491965936, guid: 439782ce0455fb740be2c55da31ff44f,
+        type: 3}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 1651299502}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 439782ce0455fb740be2c55da31ff44f, type: 3}
 --- !u!1 &1508541068
@@ -1262,11 +1249,5 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &1930954936 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 8398687980986394140, guid: 439782ce0455fb740be2c55da31ff44f,
-    type: 3}
-  m_PrefabInstance: {fileID: 1494101563}
-  m_PrefabAsset: {fileID: 0}
